@@ -1,3 +1,8 @@
+2022/8/4 
+添加了新的烘培记录
+封装了频繁使用的组件
+明天计划完成：分页功能（js）
+
 Editorial by HTML5 UP
 html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
