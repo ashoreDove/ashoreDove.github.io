@@ -120,20 +120,24 @@
                 </div>
               </div>
             </div>
-
-            <!--这里肯定以后要做js，以及这个太高了要往下挪一点 -->
-            <ul class="pagination">
-              <li><span class="button disabled">Prev</span></li>
-              <li><a href="#" class="page active">1</a></li>
-              <li><a href="#" class="page">2</a></li>
-              <li><a href="#" class="page">3</a></li>
-              <li><span>&hellip;</span></li>
-              <li><a href="#" class="page">8</a></li>
-              <li><a href="#" class="page">9</a></li>
-              <li><a href="#" class="page">10</a></li>
-              <li><a href="#" class="button">Next</a></li>
-            </ul>
           </section>
+
+          
+          <!-- <ul class="pagination">
+            <li><span class="button disabled">Prev</span></li>
+            <li><a href="#" class="page active">1</a></li>
+            <li><a href="#" class="page">2</a></li>
+            <li><a href="#" class="page">3</a></li>
+            <li><span>&hellip;</span></li>
+            <li><a href="#" class="page">8</a></li>
+            <li><a href="#" class="page">9</a></li>
+            <li><a href="#" class="page">10</a></li>
+            <li><a href="#" class="button">Next</a></li>
+          </ul> -->
+          <div id="pagination_ul"></div>
+          <script>
+            $("#pagination_ul").load("/pagination.html");
+          </script>
         </div>
       </div>
 
