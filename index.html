@@ -1,61 +1,63 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	主界面
 -->
 <html>
-	<head>
-		<title>海盐芝士麻薯超好吃です</title>
-		<link rel="shortcut icon" href="images/cat.png">
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>海盐芝士麻薯超好吃です</title>
+    <link rel="shortcut icon" href="images/cat.png" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+  </head>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header"></header>
+          <script>
+            $("#header").load("/header_icon.html");
+          </script>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+          <!-- Banner -->
+          <section id="banner">
+            <div class="content">
+              <header>
+                <h1>
+                  Wlcome to My<br />
+                  Individual Blog
+                </h1>
+                <p>A novicate coder who is the asexuality.</p>
+              </header>
+              <p>
+                “我不明白，当一个人走过一棵树影婆娑的大树，怎能不感到幸福呢？
+                当您能跟一个您所爱的人说话，怎能不感到幸福呢！
+                世界上这样美好的事物比比皆是，连最不可救药的人也会认为它们是美的。
+                您不妨看看孩子，看看朝霞，看看正在生长的青草，看看那些注视着您的，爱您的眼睛。”
+              </p>
+              <ul class="actions">
+                <li><a href="#" class="button big">Let's Go</a></li>
+              </ul>
+            </div>
+            <span class="image object">
+              <img src="images/head_portrait.jpg" alt="" />
+            </span>
+          </section>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Maintain</strong> by ashoreDove</a>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-weibo"><span class="label">Weibo</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-qq"><span class="label">QQ</span></a></li>
-										<li><a href="#" class="icon brands fa-google"><span class="label">GMail</span></a></li>
-									</ul>
-								</header>
-
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Wlcome to My<br/>
-											Individual Blog</h1>
-											<p>A novicate coder who is the asexuality.</p>
-										</header>
-										<p>“我不明白，当一个人走过一棵树影婆娑的大树，怎能不感到幸福呢？
-											当您能跟一个您所爱的人说话，怎能不感到幸福呢！
-											世界上这样美好的事物比比皆是，连最不可救药的人也会认为它们是美的。
-											您不妨看看孩子，看看朝霞，看看正在生长的青草，看看那些注视着您的，爱您的眼睛。”
-										</p>
-										<ul class="actions">
-											<li><a href="#" class="button big">Let's Go</a></li>
-										</ul>
-									</div>
-									<span class="image object">
-										<img src="images/head_portrait.jpg" alt="" />
-									</span>
-								</section>
-
-							<!-- Section -->
-								<!-- <section>
+          <!-- Section -->
+          <!-- <section>
 									<header class="major">
 										<h2>Erat lacinia</h2>
 									</header>
@@ -91,45 +93,69 @@
 									</div>
 								</section> -->
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Ipsum sed dolor</h2>
-									</header>
-									<div class="posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<h3>Interdum aenean</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-											<h3>Nulla amet dolore</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-											<h3>Tempus ullamcorper</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3>Sed etiam facilis</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<!-- <article>
+          <!-- Section -->
+          <section>
+            <header class="major">
+              <h2>Ipsum sed dolor</h2>
+            </header>
+            <div class="posts">
+              <article>
+                <a href="#" class="image"
+                  ><img src="images/pic01.jpg" alt=""
+                /></a>
+                <h3>Interdum aenean</h3>
+                <p>
+                  Aenean ornare velit lacus, ac varius enim lorem ullamcorper
+                  dolore. Proin aliquam facilisis ante interdum. Sed nulla amet
+                  lorem feugiat tempus aliquam.
+                </p>
+                <ul class="actions">
+                  <li><a href="#" class="button">More</a></li>
+                </ul>
+              </article>
+              <article>
+                <a href="#" class="image"
+                  ><img src="images/pic02.jpg" alt=""
+                /></a>
+                <h3>Nulla amet dolore</h3>
+                <p>
+                  Aenean ornare velit lacus, ac varius enim lorem ullamcorper
+                  dolore. Proin aliquam facilisis ante interdum. Sed nulla amet
+                  lorem feugiat tempus aliquam.
+                </p>
+                <ul class="actions">
+                  <li><a href="#" class="button">More</a></li>
+                </ul>
+              </article>
+              <article>
+                <a href="#" class="image"
+                  ><img src="images/pic03.jpg" alt=""
+                /></a>
+                <h3>Tempus ullamcorper</h3>
+                <p>
+                  Aenean ornare velit lacus, ac varius enim lorem ullamcorper
+                  dolore. Proin aliquam facilisis ante interdum. Sed nulla amet
+                  lorem feugiat tempus aliquam.
+                </p>
+                <ul class="actions">
+                  <li><a href="#" class="button">More</a></li>
+                </ul>
+              </article>
+              <article>
+                <a href="#" class="image"
+                  ><img src="images/pic04.jpg" alt=""
+                /></a>
+                <h3>Sed etiam facilis</h3>
+                <p>
+                  Aenean ornare velit lacus, ac varius enim lorem ullamcorper
+                  dolore. Proin aliquam facilisis ante interdum. Sed nulla amet
+                  lorem feugiat tempus aliquam.
+                </p>
+                <ul class="actions">
+                  <li><a href="#" class="button">More</a></li>
+                </ul>
+              </article>
+              <!-- <article>
 											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
 											<h3>Feugiat lorem aenean</h3>
 											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
@@ -145,107 +171,16 @@
 												<li><a href="#" class="button">More</a></li>
 											</ul>
 										</article> -->
-									</div>
-								</section>
+            </div>
+          </section>
+        </div>
+      </div>
 
-						</div>
-					</div>
-
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li>
-											<span class="opener">Recipe</span>
-											<ul>
-												<li><a href="mousse.html">慕斯专题</a></li>
-												<li><a href="honey_cake.html">蜂蜜凹蛋糕</a></li>
-												<li><a href="#">奶茶和奶茶冻</a></li>
-											</ul>
-										</li>
-										<li>
-											<span class="opener">Study Note</span>
-											<ul>
-												<li><a href="#">细扣std::cin的工作细节</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Photography</a></li>
-										<li><a href="#">Review</a></li>
-										<li><a href="#">Introduce Myself</a></li>
-										<li><a href="elements.html">Sapien Mauris</a></li>
-									</ul>
-								</nav>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Photo Wall</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/photo/1.jpg" alt="" /></a>
-											<p>2021年7月18日早晨，于福州平潭县风力发电站拍摄。</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/photo/4.jpg" alt="" /></a>
-											<p>2021年2月14日和家人一同前往武夷山，在印象大红袍表演场地外等候。</p>
-										</article>
-										<!-- <article>
-											<a href="#" class="image"><img src="images/photo/3.jpg" alt="" /></a>
-											<p>2021年5月23日傍晚，厦门某不知名海滩赶海。</p>
-										</article> -->
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, 
-										ac varius enim lorem ullamcorper dolore. 
-										Proin sed aliquam facilisis ante interdum. 
-										Sed nulla amet lorem feugiat tempus aliquam.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">857529511@qq.com</a></li>
-										<li class="icon brands solid fa-weixin">h_drawery</li>
-										<li class="icon solid fa-phone">(000) 000-0000</li>
-									</ul>
-								</section>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
-
-						</div>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+      <!-- Sidebar -->
+      <div id="sidebar"></div>
+      <script>
+        $("#sidebar").load("/menu.html");
+      </script>
+    </div>
+  </body>
 </html>
