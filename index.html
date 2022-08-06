@@ -51,9 +51,16 @@
                 <li><a href="#" class="button big">Let's Go</a></li>
               </ul>
             </div>
-            <span class="image object">
-              <img src="images/head_portrait.jpg" alt="" />
+            <span class="image">
+              <img src="images/head_portrait.jpg" id="head_p" />
             </span>
+            <script>
+              $("span.image img").hover(function(){
+                  $(this).attr("src","images/head_portrait2.jpg")
+              },function(){
+                $(this).attr("src","images/head_portrait.jpg")
+              })
+            </script>
           </section>
 
           <!-- Section -->
