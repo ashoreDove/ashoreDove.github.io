@@ -1,10 +1,17 @@
 {
     "Photography": "photo_wall.html",
     "Recipe": [
-        "mousse.html",
-        "honey_cake.html"
+        {
+            "URL": "mousse.html",
+            "Title": "慕斯蛋糕"
+        },
+        {
+            "URL": "honey_cake.html",
+            "Title": "蜂蜜凹蛋糕"
+        }
     ],
+    "Introduce": "",
+    "Homepage": "index.html",
     "Review": [],
-    "StudyNote": [
-    ]
+    "StudyNote": []
 }

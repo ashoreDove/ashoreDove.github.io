@@ -10,7 +10,9 @@ $(function () {
     //初始化
     //console.log(sort);
     $.getJSON("../page.json", function (data) {
-        page = data[sort];
+        for(var i=0;i<data[sort].length;i++){
+            page.push(data[sort][i]['URL'])
+        }
         console.log(page);
         for (var i = 0; i < page.length; i++) {
             if (page[i] == fileName) {
@@ -143,6 +145,7 @@ function dealPagination(to_cur, is_first, dom_obj) {
         } else {
             str += "<li><a href='" + page[to_cur] + "' class='button'>Next</a></li>";
         }
+
         console.log(str);
         document.getElementById("pagination").innerHTML = str;
     }

@@ -8,7 +8,7 @@ fi
 
 #根据sort加入json某类数组中
 py_name="addToJson.py"
-python2.7 $py_name $SORT $FILENAME
+python2.7 $py_name $SORT $FILENAME $PAGENAME
 
 #写入模板
 echo "<!DOCTYPE html>
