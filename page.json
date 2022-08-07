@@ -1,12 +1,10 @@
 {
-    "Recipe":[
+    "Photography": "photo_wall.html",
+    "Recipe": [
         "mousse.html",
         "honey_cake.html"
     ],
-    "Study Note":[
-
-    ],
-    "Photography":[
-
+    "Review": [],
+    "StudyNote": [
     ]
 }
