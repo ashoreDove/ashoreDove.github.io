@@ -5,10 +5,10 @@
 */
 let msg_box = [];
 $(function () {
-    //读取文件里的留言板信息。没有文件就创建一个
+    //读取
     msg_box = JSON.parse(localStorage.getItem("msg_box"));
     console.log(msg_box);
-    if (msg_box.length != 0) {
+    if (msg_box.length != null) {
         str="";
         for (var i = 0; i < msg_box.length; i++) {
             str += "<div class='msg'><h4>";
@@ -17,7 +17,7 @@ $(function () {
         console.log(str);
         document.getElementById("msg_wall").innerHTML = str;
     }
-    //保存现在的到文件里，覆盖式写入。没有文件就创建一个
+    //保存
     window.onbeforeunload = function () {
         localStorage.setItem("msg_box", JSON.stringify(msg_box));
     }
