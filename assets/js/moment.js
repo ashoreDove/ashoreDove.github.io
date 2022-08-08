@@ -8,7 +8,7 @@ $(function () {
     //读取
     msg_box = JSON.parse(localStorage.getItem("msg_box"));
     console.log(msg_box);
-    if (msg_box.length != null) {
+    if (msg_box != null) {
         str="";
         for (var i = 0; i < msg_box.length; i++) {
             str += "<div class='msg'><h4>";
