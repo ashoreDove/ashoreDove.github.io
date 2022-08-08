@@ -146,7 +146,7 @@ function dealPagination(to_cur, is_first, dom_obj) {
             str += "<li><a href='" + page[to_cur] + "' class='button'>Next</a></li>";
         }
 
-        console.log(str);
+        //console.log(str);
         document.getElementById("pagination").innerHTML = str;
     }
 }

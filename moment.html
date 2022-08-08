@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>海盐芝士麻薯超好吃です</title>
+    <link rel="shortcut icon" href="images/cat.png" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+  </head>
+  <body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header"></header>
+          <script>
+            $("#header").load("/header_icon.html");
+          </script>
+
+          <!-- Content -->
+          <section>
+            <div id="msg_wall">
+              <!-- <div class="msg">
+                <h4>15:45 2022/8/8</h4>
+                <div class="box">杨千嬅的歌听到想哭&#128166;</div>
+              </div>
+              <div class="msg">
+                <h4>15:45 2022/8/8</h4>
+                <div class="box">这么热的天真的要出门吗...</div>
+              </div> -->
+            </div>
+            <!-- <form method="post" action="#"> -->
+            <div class="row gtr-uniform">
+              <div class="col-12">
+                <textarea
+                  name="demo-message"
+                  id="demo-message"
+                  placeholder="Enter your message"
+                  rows="6"
+                ></textarea>
+              </div>
+              <div class="col-12">
+                <ul class="actions">
+                  <li>
+                    <input
+                      type="submit"
+                      value="Send Message"
+                      class="primary"
+                      id="send"
+                    />
+                  </li>
+                  <li><input type="reset" value="Reset" id="reset"/></li>
+                </ul>
+              </div>
+            </div>
+            <!-- </form> -->
+          </section>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div id="sidebar"></div>
+      <script>
+        $("#sidebar").load("/menu.html");
+      </script>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/moment.js"></script>
+  </body>
+</html>

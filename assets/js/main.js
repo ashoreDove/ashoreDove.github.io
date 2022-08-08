@@ -86,10 +86,11 @@
 				}
 				str += "</ul></li>";
 			} else {
-				str += "<li><a href='" + data[keys[i]]['URL'] + "'>" + keys[i] + "</a></li>";
+				url=(data[keys[i]]==""?"#":data[keys[i]]);
+				str += "<li><a href='" + url + "'>" + keys[i] + "</a></li>";
 			}
 		}
-		// console.log(str);
+		//console.log(str);
 		document.getElementById("menu_ul").innerHTML = str;
 		// Menu.
 		var $menu = $('#menu'),
