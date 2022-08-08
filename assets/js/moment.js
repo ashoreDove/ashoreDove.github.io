@@ -33,7 +33,11 @@ $(function () {
         str += time + "</h4><div class='box'>" + $("#demo-message").val() + "</div></div>";
         document.getElementById("msg_wall").innerHTML += str;
         // console.log(str);
-        msg_box.push({ "time": time, "msg": $("#demo-message").val() });
+        if(msg_box==null){
+            msg_box=[{ "time": time, "msg": $("#demo-message").val() }];
+        }else{
+            msg_box.push({ "time": time, "msg": $("#demo-message").val() });
+        }
         $("#demo-message").val("");
     }
     document.getElementById("reset").onclick = function () {
