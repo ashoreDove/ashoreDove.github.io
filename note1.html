@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>海盐芝士麻薯超好吃です</title>
+    <link rel="shortcut icon" href="images/cat.png" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header"></header>
+          <script>
+            $("#header").load("/header_icon.html");
+          </script>
+          <!-- Content -->
+          <section>
+            <header class="main">
+              <h1>while(std::cin >> value)语句的背后</h1>
+            </header>
+            <p>在C++ Primer第五版1.4.3节有这样一个例子:</p>
+            <pre><code>
+            int main(){
+              int sum=0,value=0;
+              //计算所有读入的值的和
+              while(std::cin >> value){
+                sum+=value;
+              }
+              //对sum进行其他的处理
+              ......
+              return 0;
+            }
+            </code></pre>
+            <p>
+              这段程序运行时，如果我们在控制台输入一组数字<i>3 4 5 6</i
+              >，程序就能计算出相应的<i>sum</i>。只需要输入一次，然后敲下回车，整个循环就能自己跑起来。
+            </p>
+            <p>
+              那么问题来了，<i>while(std::cin >> value)</i
+              >这个循环的条件判断是如何进行的，又该如何退出？以及我们一次性输入了一大堆数字，而<i>value</i>每次只能装一个。
+              那么剩下的数字是存到了哪里去呢？这就要先从<i>std::cin</i>标准输入的底层工作方式说起。
+            </p>
+            <h2>std::cin的工作原理</h2>
+            <p>
+              <i>std::cin</i
+              >也是C++中的对象，标准输入流对象。用户从IO设备（这里是键盘）输入的数据，
+              会由<i>std::cin</i>通过输入运算符<i>">>"</i>存入运算符右侧的对象中。
+            </p>
+            <p>
+              而在由IO设备输入的数据到<i>std::cin</i>的这个过程中，就绕不开<strong>标准输入缓冲区</strong>。
+              缓冲区一般分全缓冲和行缓冲。标准输入的缓冲区属于行缓冲，即“当在输入和输出中遇到换行符时，执行真正的I/O操作”。
+              我们输入的字符串并不会直接给到<i>std::cin</i>，而是存放于缓冲区中，等我们按下回车键时，回车<i>\r</i>会被自动转换成换行符<i>\n</i>，
+              此时标准输入才会从缓冲区里获取数据。需要指出的一点是，换行符<i>\n</i>也会进入缓冲区并作为一个字符存储着。
+            </p>
+            <p>
+              <i>std::cin</i
+              >在从缓冲区里读取数据的时候，是按字符逐个读取。遇到诸如空格、Tab或者换行这类分隔符的时候，要分两种情况：
+              如果当前<i>std::cin</i>并没有读取到任何数据，也就是遇到的分隔符为缓冲区的第一个字符,<i>std::cin</i>并不会对其进行读取而是进行清除，然后继续读取下一个字符。
+              （缓冲区数据结构应该与队列类似）；当<i>std::cin</i>已经有读取到数据了，再遇到分隔符时，<i>std::cin</i>就不会再往下读取，也不会对分隔符进行任何操作，而是直接将已读取到数据进行返回。
+              余下的数据仍然残留在缓冲区中等待下次读取。
+            </p>
+            <p>
+              让我们再梳理一下整个过程：一开始缓冲区是空的时候，<i>std::cin</i>无法从缓冲区里获取到数据，故而请求IO（即键盘）输入。
+              用户输入数据敲下回车，通知<i>std::cin</i>前往缓冲区拿数据。<i>std::cin</i>在缓冲区内逐字符读取，
+              遇到分隔符时如果<i>std::cin</i>此时并没有读取到任何数据就会对其进行抹杀然后继续读取下一个字符。
+              如果已经有读取到数据了，遇到分隔符的时候就会直接返回，然后通过运算符<i>">>"</i>将读取到的数据交给运算符的右侧对象。
+              之后<i>std::cin</i>就会继续前往缓冲区去获取数据，再重复上诉操作，直到缓冲区为空时停止。
+            </p>
+            <h2>std::cin >> value的返回值</h2>
+            <p>
+              现在回到开头的代码段中，<i>while()</i>语句内需要进行条件判断，而进行条件判断则需要从<code
+                >std::cin >> value</code
+              >语句中获取返回值。
+              运算符<i>">>"</i>的调用总是会返回其左侧的运算对象，即<i>std::cin</i>。当且仅当<i>std::cin</i>的状态有效时，条件判断才为True；反之为Flase，<i>while()</i>循环退出。
+              那么什么情况下，<i>std::cin</i>的状态是无效的呢？一般来说，遇到无效输入（例如代码中<i>value</i>需求整数数据但是输入却为字符串的时候）
+              和<strong>文件结束符</strong>时，<i>std::cin</i>这个流对象的状态会变为无效。
+            </p>
+            <p>
+              于是现在，我们就可以回答最后一个问题了：每次通过<i>">>"</i>给<i>value</i>有效赋值时，<i
+                >std::cin >> value</i
+              >语句都会返回True来使循环内部代码段得以运行。
+              当我们已经结束了所有的数据输入，我们通过输入文件结束符来告知<i>std::cin</i>，从而实现循环的终止。
+            </p>
+            <p>
+              对不同操作系统来说，指出文件结束的方式是不同的。在Windows系统中，输入文件结束符的方法是Ctrl+Z,再按Enter回车。但在UNIX系统中则是Ctrl+D。
+            </p>
+            <p>以上就是对在1.4.3节的<code>while(std::cin >> value)</code>学习过程中遇到一点困惑做出的结合了网络资料和自身理解的一个解答记录。
+              输入输出流算是我很常用的IO类但基本也没管过它到底是怎么运作的。在C++ Primer第八章还会有大量的篇幅去讲iostream/ostream，这篇答卷就当是在那之前的小试牛刀吧。</p>
+            <div class="row">
+              <div class="col-6 col-12-small">
+                <h4>碎碎念</h4>
+                <ul class="alt">
+                  <li>开头的那代码段调试是成功的，但是运行的时候程序结束不了Orz。</li>
+                  <li>花了半小时没排查出啥原因，感觉可能和跨平台编程有关，但不想管了。</li>
+                  <li>反正是书上的例子，能上书应该就不会有错。</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <div id="pagination_ul"></div>
+          <script>
+            var fileName = window.location.pathname.split("/").pop();
+            var sort = "StudyNote";
+            $("#pagination_ul").load("/pagination.html");
+          </script>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div id="sidebar"></div>
+      <script>
+        $("#sidebar").load("/menu.html");
+      </script>
+    </div>
+
+    <!-- Scripts -->
+  </body>
+</html>

@@ -10,11 +10,14 @@
             "Title": "蜂蜜凹蛋糕"
         }
     ],
-    "StudyNote": [],
-    "Photography": "photo_wall.html",
-    "Review": [
-       
+    "StudyNote": [
+        {
+            "URL": "note1.html",
+            "Title": "关于while(std::cin>>value)的思考"
+        }
     ],
-    "Moment":"moment.html",
+    "Photography": "photo_wall.html",
+    "Review": [],
+    "Moment": "moment.html",
     "Introduce": ""
 }

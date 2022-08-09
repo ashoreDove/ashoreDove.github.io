@@ -39,7 +39,7 @@ echo "<!DOCTYPE html>
           <script>
             \$(\"#header\").load(\"/header_icon.html\");
           </script>
-          <!-- Content -->" >$FILENAME
+          <!-- Content --><section></section>" >$FILENAME
 
 if [ $IS_PAGINATION==true ]; then
 
