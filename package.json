@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "leancloud-storage": "^4.13.1",
+    "module": "^1.2.5"
+  }
+}
