@@ -31,12 +31,12 @@ $(function () {
         }
         localStorage.setItem("msg_box", JSON.stringify(msg_box));
         //tnnd为什么不写
-        fs.writeFile('../msg.json',JSON.stringify(msg_box),function(err) {
-            console.log(err);
-            if (!err) {
-                console.log("写入成功");
-            }
-        });
+        // fs.writeFile('../msg.json',JSON.stringify(msg_box),function(err) {
+        //     console.log(err);
+        //     if (!err) {
+        //         console.log("写入成功");
+        //     }
+        // });
     })
 
     document.getElementById("send").onclick = function () {
@@ -56,6 +56,13 @@ $(function () {
         }else{
             msg_box.push({ "time": time, "msg": $("#demo-message").val() });
         }
+        
+        fs.writeFile('../msg.json',JSON.stringify(msg_box),function(err) {
+            console.log(err);
+            if (!err) {
+                console.log("写入成功");
+            }
+        });
         $("#demo-message").val("");
     }
     document.getElementById("reset").onclick = function () {
