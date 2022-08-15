@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>海盐芝士麻薯超好吃です</title>
+    <link rel="shortcut icon" href="images/cat.png" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header"></header>
+          <script>
+            $("#header").load("/header_icon.html");
+          </script>
+          <!-- Content -->
+          <section>
+            <header class="main">
+              <h1>Summer Special</h1>
+            </header>
+            <p>
+              最近逐渐忙碌了起来，没有太多时间玩烘焙。不过难耐夏日炎热，就还是忙里偷闲整了两个冰冰凉凉的小甜品。
+            </p>
+            <h2>Milky Tea</h2>
+            <p>
+              奶茶制作的原料基本上大同小异，差别主要体现在牛奶与茶的比例。这个可以根据个人的口味适当调整。
+            </p>
+            <div class="row">
+              <div class="col-6 col-12-small">
+                <h4>Steps</h4>
+                <ol>
+                  <li>
+                    红茶茶叶与糖先下锅煮，开中火至糖开始融化转小火，用塑料铲辅助锅加热。
+                  </li>
+                  <li>
+                    翻炒至融化的糖水变成焦糖，倒入清水（冷水遇热锅可能会出现飞溅），用塑料铲铲起底部粘锅的茶叶和糖，适当搅拌。
+                  </li>
+                  <li>
+                    开小火等水烧开（如果喜欢茶味浓的可以多煮一会，不喜欢茶味的，等茶水一出现成型气泡就差不多可以关火了），倒入牛奶混合。
+                  </li>
+                  <li>最后过滤茶叶，Finished。</li>
+                </ol>
+              </div>
+              <div class="col-6 col-12-small">
+                <h4>Materials(As A Reference)</h4>
+                <div class="table-wrapper">
+                  <table class="alt">
+                    <!-- <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Dosage</th>
+                      </tr>
+                    </thead> -->
+                    <tbody>
+                      <tr>
+                        <td>澳牛盒装牛奶</td>
+                        <td>400g</td>
+                      </tr>
+                      <tr>
+                        <td>红茶茶叶</td>
+                        <td>3g</td>
+                      </tr>
+                      <tr>
+                        <td>白糖</td>
+                        <td>27g</td>
+                      </tr>
+                      <tr>
+                        <td>清水</td>
+                        <td>250g</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <hr class="major" />
+            <div class="box alt">
+              <div class="row gtr-50 gtr-uniform">
+                <div class="col-4">
+                  <span class="image fit"
+                    ><img src="images/recipe/milkty_tea.jpg" alt=""
+                  /></span>
+                </div>
+                <div class="col-4">
+                  <span class="image fit"
+                    ><img src="images/recipe/suannaidong2.jpg" alt=""
+                  /></span>
+                </div>
+                <div class="col-4">
+                  <span class="image fit"
+                    ><img src="images/recipe/suannaidong1.jpg" alt=""
+                  /></span>
+                </div>
+              </div>
+            </div>
+            <hr class="major" />
+            <h2>Frozen Yoghurts</h2>
+            <div class="row">
+              <div class="col-6 col-12-small">
+                <h4>Materials</h4>
+                <div class="table-wrapper">
+                  <table class="alt">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Dosage</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>酸奶</td>
+                        <td>270g</td>
+                      </tr>
+                      <tr>
+                        <td>淡奶油</td>
+                        <td>100g</td>
+                      </tr>
+                      <tr>
+                        <td>白糖</td>
+                        <td>35g</td>
+                      </tr>
+                      <tr>
+                        <td>玉米淀粉</td>
+                        <td>40g</td>
+                      </tr>
+                      <tr>
+                        <td>椰蓉</td>
+                        <td>大量</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="table-wrapper">
+                <h4>Step</h4>
+                <p>摸了，下次再写</p>
+              </div>
+            </div>
+          </section>
+          <div id="pagination_ul"></div>
+          <script>
+            var fileName = window.location.pathname.split("/").pop();
+            var sort = "Recipe";
+            $("#pagination_ul").load("/pagination.html");
+          </script>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div id="sidebar"></div>
+      <script>
+        $("#sidebar").load("/menu.html");
+      </script>
+    </div>
+
+    <!-- Scripts -->
+  </body>
+</html>
