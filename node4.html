@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>海盐芝士麻薯超好吃です</title>
+    <link rel="shortcut icon" href="images/cat.png" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header"></header>
+          <script>
+            $("#header").load("/header_icon.html");
+          </script>
+          <!-- Content -->
+          <section>
+            <header class="main">
+              <h1>LeetCode之环形链表</h1>
+            </header>
+            <blockquote>
+              参考：https://blog.csdn.net/liuwp5/article/details/109207360
+              <br />
+              https://www.zhihu.com/question/23208893/answer/109705707 <br />
+            </blockquote>
+            <p>事情起因是在刷LeetCode的时候遇到了这道题：</p>
+            <span class="image fit"
+              ><img src="images/study/circle1.png" alt=""
+            /></span>
+            <p>
+              我第一反应就是用双指针，让快指针先走，然后构造快慢指针在环形起点相遇。但挣扎了半天也不知道要怎么实现，遂看了答案。<br />
+              答案给出的最优解确实也是双指针，但并不是改变两个指针的起始位置，而是让快指针的步长变成慢指针的<strong>两倍</strong>，如果最终两个指针相遇就代表有环。<br />
+              学渣如我，对这个解决方案有了根本性的不理解：为什么快慢指针一定会相遇呢？
+            </p>
+            <p>
+              模糊地想，快指针每次走2步，慢指针每次走1步，它们又是同时移动，故每行动一次，这两指针之间的距离就会缩短一步。
+              假设给一个足够长的路程，那么就这样一步一步地缩短距离，这两指针最终会相遇也是理所当然的。怎么让路程变得足够长呢，当然是提供一个循环的路了。
+              于是这一切似乎得到了完美的解答。
+            </p>
+            <p>
+              但事实上这不符合我的思考习惯，这个解答是已经知道这样做一定会相遇的情况下给出的解释。
+              按我平常的思考方式来说，就算会想到要通过快慢指针的步长进行解题，也不能直接洞察到他们最终会相遇——步长大的最终追赶上步长小的这件事显而易见，但在循环里“追上”这件事毫无意义。况且在离散的情况下，追上不等于会相遇。<br />
+              按我的思维方式，会以此为条件开始研究“怎样才能让它们最终相遇”“相遇的位置会和起点有关系吗”？<br/>
+              没错，这就我这篇博客主要想探讨的，就是这个：两个指针的步长要满足什么样的关系，才能让它们相遇？
+            </p>
+            <h2>问题①的求解</h2>
+            <p>显而易见的，这是个数学问题，于是我们先给出如下定义：
+              <ul>
+                <li>环的长度为L</li>
+                <li>慢指针步长r1，快指针步长r2</li>
+                <li>慢指针刚进入循环时，快指针和慢指针之间的距离s</li>
+              </ul>
+              两指针要相遇，说明它们<strong>所处的位置一样</strong>，假设此时他们移动了t次则应该有：
+              <code>s+r1*t - r2*t = k*L (k为正整数)</code>，化简得<code>L*k + (r2-r1)*t = s</code>。<br/>
+              则问题转化成：当上述等式成立时，只要t存在整数解，两指针必定相遇。<br/>
+              此时我们引入<strong>扩展欧几里得算法</strong>：<code>一定存在整数 x, y 满足等式 a*x + b*y = gcd(a,b)</code>，
+              <code>cd(a,b)</code>表示的是a和b的最大公约数。我们想让t有整数解，故a=L，x=k，b=r2-r1，y=t。
+              则只要满足<code>s = k*gcd(L, r2-r1)(k为正整数)</code>，一切都make sense了。翻译成人话就是，<strong>要满足两个指针能在循环内相遇，则快慢指针之间的差距s要能被环长度L与步长差r2-r1的最大公约数整除</strong>,
+              这种情况下的快慢指针才是能有效检测是否存在环的指针。因为当r2-r1=1时，<code>s = k*gcd(L, r2-r1)</code>永远成立，所以只要满足快指针步长比慢指针长1就一定能相遇。
+              （其实在poj上还真有类似的题目，指路：<a href="http://poj.org/problem?id=1061">青蛙的约会</a>）
+            </p>
+            <p>这样就结束了吗，当然没有。一般情况下，我们知道链表存在环了，肯定会下意识地去往“环的入口”在哪想。那么我们已经可以求得相遇点，要怎么才能接着推出入口点呢？</p>
+            <h2>问题②的求解</h2>
+            <span class="image fit"
+              ><img src="images/study/circle2.png" alt=""
+            /></span>
+            <p>我们现在让快指针以2步慢指针以一步的速度走，根据上面的问题的结论，它们最终会在环内相遇。
+              我们假定相遇点到入口点的距离为n，头结点到入口点的距离为m，环长依旧是L，移动次数是t。
+            则此时慢指针走的路程为<code>r1*t = m + n + k1*L(k1为某个正整数)</code>，快指针走的路程为<code>r1*2*t = m + n + k2*L(k2为某个正整数)</code>。
+              相减可得<code>r1*t = (k2 - k1)*L</code>，故我们可知<strong>快慢指针走的路程是环长的整数倍。</strong>
+              再和第一个式子联立可得<code>m + n = (k2 - 2*k1)*L</code>。
+              剩下的明天再写吧。
+          </p>
+          </section>
+          <div id="pagination_ul"></div>
+          <script>
+            var fileName = window.location.pathname.split("/").pop();
+            var sort = "StudyNote";
+            $("#pagination_ul").load("/pagination.html");
+          </script>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div id="sidebar"></div>
+      <script>
+        $("#sidebar").load("/menu.html");
+      </script>
+    </div>
+
+    <!-- Scripts -->
+  </body>
+</html>
